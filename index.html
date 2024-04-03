@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Form Example</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+<style>
+    .container {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  
+  .payment-form-message{
+    border-bottom: 1px solid #ccc;
+    background-color: rgba(0, 0, 0, .03)
+  }
+  
+  .card-icons-container {
+    background-color: #afadad;
+    padding: 8px;
+    border-radius: 5px;
+    margin: 5px;
+  }
+  
+  .button-container{
+    border-top: 1px solid #ccc;
+    background-color: rgba(0, 0, 0, .03)
+  }
+</style>
+
+<div class="container">
+  <!-- Container div -->
+  <div class="payment-form-message row">
+    <div class="col mb-3 mt-2">
+      <h2>Payment form example</h2>
+    </div>
+  </div>
+  <div class="missing-fields-message row mt-2">
+    <div class="col">
+      <div class="alert alert-danger">Some fields are missing</div>
+    </div>
+  </div>
+  <!-- Row 2: card # | cvc # | Amount -->
+  <div class="row mb-4">
+    <div class="col">
+      <div class="d-flex flex-row">
+        <!-- First fieldset -->
+        <fieldset class="card-details-fieldset mr-3 col">
+          <legend>Card #</legend>
+          <input type="text" class="form-control" id="cardNumber" placeholder="Card Number">
+        </fieldset>
+        <!-- Second fieldset -->
+        <fieldset class="card-details-fieldset mr-3 col">
+          <legend>CVC #</legend>
+          <input type="text" class="form-control" id="cvc" placeholder="CVC">
+        </fieldset>
+        <!-- Third fieldset -->
+        <fieldset class="card-details-fieldset">
+          <legend>Amount</legend>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">$</span>
+            </div>
+            <input type="text" class="form-control" id="amount" placeholder="Amount">
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+  <!-- Row 3: Personal Information -->
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <div class="d-flex flex-column">
+        <!-- First fieldset -->
+        <fieldset class="personal-details-fieldset mb-3">
+          <legend>First Name</legend>
+          <input type="text" class="form-control" id="firstName" placeholder="First Name">
+        </fieldset>
+        <!-- Second fieldset -->
+        <fieldset class="personal-details-fieldset mb-3">
+          <legend>City</legend>
+          <input type="text" class="form-control" id="city" placeholder="City">
+        </fieldset>
+        <!-- Third fieldset -->
+        <fieldset class="personal-details-fieldset col-auto mr-auto p-0">
+          <legend>We accept: </legend>
+          <div class="form-group">
+            <div class="card-icons-container">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="paymentMethod" id="mastercard" value="mastercard">
+                <label class="form-check-label" for="mastercard">
+                  <i class="fa-brands fa-cc-mastercard card-icon"></i>
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="paymentMethod" id="visa" value="visa">
+                <label class="form-check-label" for="visa">
+                  <i class="fa-brands fa-cc-visa card-icon"></i>
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="paymentMethod" id="diners-club" value="diners-club">
+                <label class="form-check-label" for="diners-club">
+                  <i class="fa-brands fa-cc-diners-club card-icon"></i>
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="paymentMethod" id="paypal" value="paypal">
+                <label class="form-check-label" for="paypal">
+                  <i class="fa-brands fa-cc-paypal card-icon"></i>
+                </label>
+              </div>
+            </div>
+          </div>
+          <!-- Add more payment methods here -->
+        </fieldset>
+      </div>
+    </div>
+    <div class="col-md-6">
+        <div class="d-flex flex-column">
+          <!-- First fieldset -->
+          <fieldset class="personal-details-fieldset mb-3">
+            <legend>Last name</legend>
+            <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+          </fieldset>
+          <!-- Second fieldset -->
+          <div class="d-flex flex-row mb-3">
+            <fieldset class="personal-details-fieldset col-6 p-lg-0">
+              <legend>State</legend>
+              <select id="state" class="form-control">
+                <option selected>Choose...</option>
+                <!-- Add state options here -->
+              </select>
+            </fieldset>
+            <fieldset class="personal-details-fieldset col-6">
+              <legend>Postal code</legend>
+              <input type="text" class="form-control" id="postalCode" placeholder="Postal Code">
+            </fieldset>
+          </div>
+          <!-- Third fieldset -->
+          <fieldset class="personal-details-fieldset">
+            <legend>Message</legend>
+            <textarea class="form-control" id="message" rows="3"></textarea>
+            <p>Add any notes here.</p>
+          </fieldset>
+        </div>
+    </div>
+  </div>
+  <!-- Row 5: cancel | send -->
+  <div class="row button-container">
+    <div class="col text-right mt-2 mb-3">
+      <button type="button" class="btn btn-secondary">Cancel</button>
+      <button type="button" class="btn btn-primary">Send</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
