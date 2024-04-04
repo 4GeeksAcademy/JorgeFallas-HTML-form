@@ -32,6 +32,12 @@
     border-top: 1px solid #ccc;
     background-color: rgba(0, 0, 0, .03)
   }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 </style>
 
 <div class="container">
@@ -52,22 +58,22 @@
       <div class="d-flex flex-row">
         <!-- First fieldset -->
         <fieldset class="card-details-fieldset mr-3 col">
-          <legend>Card #</legend>
-          <input type="text" class="form-control" id="cardNumber" placeholder="Card Number">
+          <label for="cardNumber">Card #</label>
+          <input type="number" class="form-control" id="cardNumber" placeholder="Card Number" required>
         </fieldset>
         <!-- Second fieldset -->
         <fieldset class="card-details-fieldset mr-3 col">
-          <legend>CVC #</legend>
-          <input type="text" class="form-control" id="cvc" placeholder="CVC">
+          <label for="cvc">CVC #</label>
+          <input type="number" class="form-control" id="cvc" placeholder="CVC" required>
         </fieldset>
         <!-- Third fieldset -->
         <fieldset class="card-details-fieldset">
-          <legend>Amount</legend>
+          <label for="amount">Amount</label>
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text">$</span>
             </div>
-            <input type="text" class="form-control" id="amount" placeholder="Amount">
+            <input type="number" class="form-control" id="amount" placeholder="Amount" required>
           </div>
         </fieldset>
       </div>
@@ -79,39 +85,39 @@
       <div class="d-flex flex-column">
         <!-- First fieldset -->
         <fieldset class="personal-details-fieldset mb-3">
-          <legend>First Name</legend>
-          <input type="text" class="form-control" id="firstName" placeholder="First Name">
+          <label for="firstName">First Name</label>
+          <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
         </fieldset>
         <!-- Second fieldset -->
         <fieldset class="personal-details-fieldset mb-3">
-          <legend>City</legend>
-          <input type="text" class="form-control" id="city" placeholder="City">
+          <label for="city">City</label>
+          <input type="text" class="form-control" id="city" placeholder="City" required>
         </fieldset>
         <!-- Third fieldset -->
         <fieldset class="personal-details-fieldset col-auto mr-auto p-0">
-          <legend>We accept: </legend>
+          <label for="card-payments">We accept:</label>
           <div class="form-group">
             <div class="card-icons-container">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="paymentMethod" id="mastercard" value="mastercard">
+                <input class="form-check-input" type="radio" name="paymentMethod" id="mastercard" value="mastercard" required>
                 <label class="form-check-label" for="mastercard">
                   <i class="fa-brands fa-cc-mastercard card-icon"></i>
                 </label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="paymentMethod" id="visa" value="visa">
+                <input class="form-check-input" type="radio" name="paymentMethod" id="visa" value="visa" required>
                 <label class="form-check-label" for="visa">
                   <i class="fa-brands fa-cc-visa card-icon"></i>
                 </label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="paymentMethod" id="diners-club" value="diners-club">
+                <input class="form-check-input" type="radio" name="paymentMethod" id="diners-club" value="diners-club" required>
                 <label class="form-check-label" for="diners-club">
                   <i class="fa-brands fa-cc-diners-club card-icon"></i>
                 </label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="paymentMethod" id="paypal" value="paypal">
+                <input class="form-check-input" type="radio" name="paymentMethod" id="paypal" value="paypal" required>
                 <label class="form-check-label" for="paypal">
                   <i class="fa-brands fa-cc-paypal card-icon"></i>
                 </label>
@@ -126,26 +132,33 @@
         <div class="d-flex flex-column">
           <!-- First fieldset -->
           <fieldset class="personal-details-fieldset mb-3">
-            <legend>Last name</legend>
-            <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+            <label for="lastName">Last name</label>
+            <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
           </fieldset>
           <!-- Second fieldset -->
           <div class="d-flex flex-row mb-3">
             <fieldset class="personal-details-fieldset col-6 p-lg-0">
-              <legend>State</legend>
-              <select id="state" class="form-control">
-                <option selected>Choose...</option>
+              <label for="state">State</label>
+              <select id="state" class="form-control" required>
+                <option selected disabled>Choose...</option>
                 <!-- Add state options here -->
+                <option>San José</option>
+                <option>Alajuela</option>
+                <option>Cartago</option>
+                <option>Heredia</option>
+                <option>Guanacaste</option>
+                <option>Puntarenas</option>
+                <option>Limón</option>
               </select>
             </fieldset>
             <fieldset class="personal-details-fieldset col-6">
-              <legend>Postal code</legend>
-              <input type="text" class="form-control" id="postalCode" placeholder="Postal Code">
+              <label for="postalCode">Postal code</label>
+              <input type="number" class="form-control" id="postalCode" placeholder="Postal Code" required>
             </fieldset>
           </div>
           <!-- Third fieldset -->
           <fieldset class="personal-details-fieldset">
-            <legend>Message</legend>
+            <label for="message">Message</label>
             <textarea class="form-control" id="message" rows="3"></textarea>
             <p>Add any notes here.</p>
           </fieldset>
@@ -156,7 +169,7 @@
   <div class="row button-container">
     <div class="col text-right mt-2 mb-3">
       <button type="button" class="btn btn-secondary">Cancel</button>
-      <button type="button" class="btn btn-primary">Send</button>
+      <button type="submit" class="btn btn-primary">Send</button>
     </div>
   </div>
 </div>
